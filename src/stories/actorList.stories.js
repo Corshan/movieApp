@@ -1,7 +1,7 @@
 import React from "react";
 import { MemoryRouter } from "react-router";
 //import { action } from "@storybook/addon-actions";
-import AddToFavouritesIcon from "../components/cardIcons/addToFavourites";
+// import AddToFavouritesIcon from "../components/cardIcons/addToFavourites";
 import Grid from "@mui/material/Grid";
 import ActorList from "../components/actorList";
 import Sample from '../stories/sampleActor';

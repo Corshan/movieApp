@@ -13,7 +13,6 @@ import MoviesContextProvider from "./contexts/moviesContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
 import WatchLaterPage from "./pages/watchLaterPage";
 import TVShowPage from "./pages/discoverTVShowsPage";
-import PopularActorsPage from './pages/PopularActorsPage'
 import ActorListPage from "./pages/PopularActorsPage";
 
 const queryClient = new QueryClient({
