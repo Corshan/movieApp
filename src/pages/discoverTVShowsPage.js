@@ -1,13 +1,14 @@
 import React from "react";
-import { getMovies, getTvShows } from "../api/tmdb-api";
+import { getTvShows, getPopularActors } from "../api/tmdb-api";
 import PageTemplate from '../components/templateTvShowList'
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
-import AddToFavouritesIcon from '../components/cardIcons/addToFavourites';
+// import AddToFavouritesIcon from '../components/cardIcons/addToFavourites';
 
-const HomePage = (props) => {
+const DiscoverTVShowsPage = (props) => {
 
   const {  data, error, isLoading, isError }  = useQuery('discoverTvshows', getTvShows)
+
 
   if (isLoading) {
     return <Spinner />
@@ -29,4 +30,4 @@ const HomePage = (props) => {
       />
   );
 };
-export default HomePage;
+export default DiscoverTVShowsPage;

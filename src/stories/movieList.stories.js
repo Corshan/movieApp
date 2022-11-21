@@ -2,7 +2,7 @@ import React from "react";
 import MovieList from "../components/movieList";
 import SampleMovie from "./sampleMovie";
 import { MemoryRouter } from "react-router";
-import { action } from "@storybook/addon-actions";
+//import { action } from "@storybook/addon-actions";
 import AddToFavouritesIcon from "../components/cardIcons/addToFavourites";
 import Grid from "@mui/material/Grid";
 import MoviesContextProvider from "../contexts/moviesContext";
