@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Header from "../headerMovieList";
-import FilterCard from "../filterMoviesCard";
+import FilterCard from "../filterCard";
 import TVShowList from "../tvShowList";
 import Grid from "@mui/material/Grid";
 
@@ -33,6 +33,7 @@ function TVShowTemplateList({ tvShows, title, action }) {
             onUserInput={handleChange}
             titleFilter={nameFilter}
             genreFilter={genreFilter}
+            type = {"Tv Shows"}
           />
         </Grid>
         <TVShowList tvShows={displayedTvshows}/>

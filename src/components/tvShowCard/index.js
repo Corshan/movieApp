@@ -1,7 +1,8 @@
 import Card from "@mui/material/Card";
+import { Link } from "react-router-dom";
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-// import Button from '@mui/material/Button';
+import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import CardHeader from "@mui/material/CardHeader";
 import img from '../../images/film-poster-placeholder.png';
@@ -45,6 +46,11 @@ export default function TVShowCard  (tvShow) {
         </Grid>
       </CardContent>
       <CardActions disableSpacing>
+      <Link to={``}>
+          <Button variant="outlined" size="medium" color="primary">
+            More Info ...
+          </Button>
+        </Link>
       </CardActions>
     </Card>
     )

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Header from "../headerMovieList";
-import FilterCard from "../filterMoviesCard";
+import FilterCard from "../filterCard";
 import MovieList from "../movieList";
 import Grid from "@mui/material/Grid";
 
@@ -33,6 +33,7 @@ function MovieListPageTemplate({ movies, title, action }) {
             onUserInput={handleChange}
             titleFilter={nameFilter}
             genreFilter={genreFilter}
+            type ={"movies"}
           />
         </Grid>
         <MovieList action={action} movies={displayedMovies}></MovieList>
