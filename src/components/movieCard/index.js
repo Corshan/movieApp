@@ -10,14 +10,14 @@ import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
 import StarRateIcon from "@mui/icons-material/StarRate";
-import IconButton from "@mui/material/IconButton";
 import Grid from "@mui/material/Grid";
 import img from '../../images/film-poster-placeholder.png'
 import Avatar from '@mui/material/Avatar';
 import { MoviesContext } from "../../contexts/moviesContext";
+import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 
 export default function MovieCard({ movie, action }){
-  const { favourites, addToFavourites } = useContext(MoviesContext);
+  const { favourites, mustWatch } = useContext(MoviesContext);
 
   if (favourites.find((id) => id === movie.id)) {
     movie.favourite = true;
@@ -25,10 +25,11 @@ export default function MovieCard({ movie, action }){
     movie.favourite = false
   }
 
-  const handleAddToFavourite = (e) => {
-    e.preventDefault();
-    addToFavourites(movie);
-  };
+  if (mustWatch.find((id) => id === movie.id)){
+    movie.mustWatch = true;
+  }else{
+    movie.mustWatch = false;
+  }
 
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -39,6 +40,12 @@ export default function MovieCard({ movie, action }){
               <FavoriteIcon />
             </Avatar>
           ) : null
+        }
+        action = {
+          movie.mustWatch ? (
+            <Avatar sx={{ backgroundColor: 'blue' }}>
+            <PlaylistAddIcon/>
+          </Avatar>) : null
         }
         title={
           <Typography variant="h5" component="p">
