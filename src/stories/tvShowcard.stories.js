@@ -1,8 +1,8 @@
 import React from "react";
-import SampleMovie from "./sampleData";
 import { MemoryRouter } from "react-router";
 import MoviesContextProvider from "../contexts/moviesContext";
 import TVShowCard from "../components/tvShowCard";
+import sampleTVshow from "./sampleTVshow";
 
 export default {
   title: "Home Page/TVShowCard",
@@ -15,7 +15,7 @@ export default {
 
 export const Basic = () => {
   return (
-    <TVShowCard/>
+    <TVShowCard tvShow = {sampleTVshow}/>
   );
 };
 Basic.storyName = "Default";
