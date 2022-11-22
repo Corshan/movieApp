@@ -69,8 +69,9 @@ export default function FilterCard(props) {
       variant="filled"
       value={props.titleFilter}
       onChange={handleTextChange}
-    />
-        <FormControl sx={formControl}>
+        />
+        
+          <FormControl sx={formControl} style={{visibility: props.type === "actors" ? 'hidden' : 'visable'}} >
           <InputLabel id="genre-label">Genre</InputLabel>
           <Select
     labelId="genre-label"
@@ -88,12 +89,12 @@ export default function FilterCard(props) {
             })}
           </Select>
         </FormControl>
+      
       </CardContent>
       <CardMedia
         sx={{ height: 300 }}
         image={img}
-        title="Filter"
-      />
+        title="Filter"/>
       <CardContent>
         <Typography variant="h5" component="h1">
           <SearchIcon fontSize="large" />

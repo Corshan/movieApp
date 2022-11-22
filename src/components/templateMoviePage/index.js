@@ -11,7 +11,7 @@ const TemplateMoviePage = ({ movie, children }) => {
     ["images", { id: movie.id }],
     getMovieImages
   );
-    console.log("Hello")
+    //console.log("Hello")
  
 
   if (isLoading) {

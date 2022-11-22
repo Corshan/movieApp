@@ -8,7 +8,7 @@ import Sample from '../stories/sampleActor';
 
 
 export default {
-  title: "Home Page/ActorList",
+  title: "Actor/ActorList",
   component: ActorList,
   decorators: [
     (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,

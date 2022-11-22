@@ -33,7 +33,7 @@ function ActorListTemplate({ actors, title, action }) {
             onUserInput={handleChange}
             titleFilter={nameFilter}
             genreFilter={genreFilter}
-            type = {"Actors"}
+            type = "actors"
           />
         </Grid>
         <ActorList actors={displayedActors}/>

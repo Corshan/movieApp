@@ -5,7 +5,7 @@ import Card from "../components/actorCard";
 import sample from "./sampleActor";
 
 export default {
-  title: "Cards/ActorCard",
+  title: "Actor/ActorCard",
   component: Card,
   decorators: [
     (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,
