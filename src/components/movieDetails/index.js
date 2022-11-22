@@ -12,6 +12,8 @@ import MovieReviews from "../movieReviews"
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
 import { getSimilarMovies } from "../../api/tmdb-api";
+import { Link } from "react-router-dom";
+import Button from "@mui/material/Button";
 
 
 const root = {
@@ -99,7 +101,9 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
         </li>
         {similar.map((c) => (
           <li key={c.title}>
+            <Link to={`/movies/${c.id}`}>
             <Chip label={c.title} sx={chip} />
+        </Link>
           </li>
         ))}
       </Paper>
