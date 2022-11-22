@@ -33,7 +33,9 @@ const TemplateMoviePage = ({ movie, children }) => {
       <Grid container spacing={5} sx={{ padding: "15px" }}>
         <Grid item xs={3}>
           <div sx={{
-            
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "space-around",
           }}>
             <Slideshow images={images}/>
           </div>

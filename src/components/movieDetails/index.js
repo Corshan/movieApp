@@ -9,6 +9,9 @@ import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews"
+import { useQuery } from "react-query";
+import Spinner from '../spinner'
+import { getSimilarMovies } from "../../api/tmdb-api";
 
 
 const root = {
@@ -23,6 +26,21 @@ const chip = { margin: 0.5 };
 
 const MovieDetails = ({ movie }) => {  // Don't miss this!
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const { data , error, isLoading, isError } = useQuery(
+    ["similar", { id: movie.id }],
+    getSimilarMovies
+  );
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+
+  if (isError) {
+    return <h1>{error.message}</h1>;
+  }
+
+  //console.log(data)
+  const similar = data.results;
 
   return (
     <>
@@ -69,6 +87,19 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
         {movie.production_countries.map((c) => (
           <li key={c.name}>
             <Chip label={c.name} sx={chip} />
+          </li>
+        ))}
+      </Paper>
+      <Paper 
+        component="ul" 
+        sx={root}
+      >
+        <li>
+          <Chip label="Similar Movies" sx={chip} color="primary" />
+        </li>
+        {similar.map((c) => (
+          <li key={c.title}>
+            <Chip label={c.title} sx={chip} />
           </li>
         ))}
       </Paper>
