@@ -11,21 +11,21 @@ import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
 import Grid from "@mui/material/Grid";
 import StarRateIcon from "@mui/icons-material/StarRate";
 
-export default function TVShowCard  (tvShow) {
+export default function TVShowCard ({tvShow}) {
     return(
         <Card sx={{ maxWidth: 345 }}>
       <CardHeader
         title={
           <Typography variant="h5" component="p">
-            {tvShow.tvShow.name}{" "}
+            {tvShow.name}{" "}
           </Typography>
         }
       />
       <CardMedia
         sx={{ height: 500 }}
         image={
-          tvShow.tvShow.poster_path
-            ? `https://image.tmdb.org/t/p/w500/${tvShow.tvShow.poster_path}`
+          tvShow.poster_path
+            ? `https://image.tmdb.org/t/p/w500/${tvShow.poster_path}`
             : img
         }
       />
@@ -34,13 +34,13 @@ export default function TVShowCard  (tvShow) {
           <Grid item xs={6}>
             <Typography variant="h6" component="p">
             <CalendarIcon fontSize="small" />
-              {tvShow.tvShow.first_air_date}
+              {tvShow.first_air_date}
             </Typography>
           </Grid>
           <Grid item xs={6}>
           <Typography variant="h6" component="p">
               <StarRateIcon fontSize="small" />
-              {"  "} {tvShow.tvShow.vote_average}{" "}
+              {"  "} {tvShow.vote_average}{" "}
             </Typography>
           </Grid>
         </Grid>

@@ -8,19 +8,19 @@ import img from '../../images/film-poster-placeholder.png';
 import CardActions from "@mui/material/CardActions";
 
 
-export default function ActorCard (actor){
+export default function ActorCard ({actor}){
     return(
         <Card>
             <CardHeader 
             title = {
                 <Typography variant="h5" component="p">
-            {actor.actor.name}{" "}
+            {actor.name}{" "}
           </Typography>
             }/>
             <CardMedia
         sx={{ height: 500 }}
         image={
-          actor.actor.profile_path
+          actor.profile_path
             ? `https://image.tmdb.org/t/p/w500/${actor.actor.profile_path}`
             : img
         }
