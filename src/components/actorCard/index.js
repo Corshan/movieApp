@@ -21,7 +21,7 @@ export default function ActorCard ({actor}){
         sx={{ height: 500 }}
         image={
           actor.profile_path
-            ? `https://image.tmdb.org/t/p/w500/${actor.actor.profile_path}`
+            ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}`
             : img
         }
       />

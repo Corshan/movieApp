@@ -1,17 +1,21 @@
 import React from "react";
 import MovieHeader from "../headerMovie";
 import Grid from "@mui/material/Grid";
+import Card from "@mui/material/Card";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import { getMovieImages } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
+import Slideshow from "../slideShow";
 
 const TemplateMoviePage = ({ movie, children }) => {
   const { data , error, isLoading, isError } = useQuery(
     ["images", { id: movie.id }],
     getMovieImages
   );
+
+ 
 
   if (isLoading) {
     return <Spinner />;
@@ -29,21 +33,9 @@ const TemplateMoviePage = ({ movie, children }) => {
       <Grid container spacing={5} sx={{ padding: "15px" }}>
         <Grid item xs={3}>
           <div sx={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "space-around",
+            
           }}>
-            <ImageList 
-                cols={1}>
-                {images.map((image) => (
-                    <ImageListItem key={image.file_path} cols={1}>
-                    <img
-                        src={`https://image.tmdb.org/t/p/w500/${image.file_path}`}
-                        alt={image.poster_path}
-                    />
-                    </ImageListItem>
-                ))}
-            </ImageList>
+            <Slideshow images={images}/>
           </div>
         </Grid>
 
