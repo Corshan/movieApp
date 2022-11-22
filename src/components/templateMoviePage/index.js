@@ -1,9 +1,6 @@
 import React from "react";
 import MovieHeader from "../headerMovie";
 import Grid from "@mui/material/Grid";
-import Card from "@mui/material/Card";
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
 import { getMovieImages } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
@@ -14,7 +11,7 @@ const TemplateMoviePage = ({ movie, children }) => {
     ["images", { id: movie.id }],
     getMovieImages
   );
-
+    console.log("Hello")
  
 
   if (isLoading) {

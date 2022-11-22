@@ -3,7 +3,7 @@ import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 
 const Slideshow = ({images}) => {
-    console.log(images)
+    //console.log(images)
     const slideImages = images.map((image)=>(
         {
             url:`https://image.tmdb.org/t/p/w500${image.file_path}`
