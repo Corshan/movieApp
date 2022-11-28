@@ -1,13 +1,8 @@
-import React, {useState} from "react";
+import React from "react";
 import Chip from "@mui/material/Chip";
-import Paper from "@mui/material/Paper";
-import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import MonetizationIcon from "@mui/icons-material/MonetizationOn";
-import StarRate from "@mui/icons-material/StarRate";
-import Typography from "@mui/material/Typography";
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
-import { getActorMovieCredits, getActorTVShowCredits} from "../../api/tmdb-api";
+import { getActorTVShowCredits} from "../../api/tmdb-api";
 import { Link } from "react-router-dom";
 
 const chip = { margin: 0.5 };
