@@ -9,6 +9,7 @@ import { useQuery } from "react-query";
 import Spinner from '../spinner'
 import { getActorMovieCredits} from "../../api/tmdb-api";
 import { Link } from "react-router-dom";
+import ActorTvCredits from "../actorTvCredits";
 
 
 const root = {
@@ -25,7 +26,7 @@ const Actordetails = ({ actor }) => {  // Don't miss this!
   const { data , error, isLoading, isError } = useQuery(
     ["movieCredits", { id: actor.id }],
     getActorMovieCredits
-  );
+    );
 
   if (isLoading) {
     return <Spinner />;
@@ -34,19 +35,18 @@ const Actordetails = ({ actor }) => {  // Don't miss this!
   if (isError) {
     return <h1>{error.message}</h1>;
   }
-
-  //console.log(data)
     const movieCredits = data;
+    //console.log(data);
 
   return (
-    <>
+      <>
       <Typography variant="h5" component="h3">
         Biography
       </Typography>
 
       <Typography variant="h6" component="p">
         {actor.biography}
-      </Typography>
+              </Typography>
 
       <Paper 
         component="ul" 
@@ -85,6 +85,10 @@ const Actordetails = ({ actor }) => {  // Don't miss this!
         </Link>
           </li>
         ))}
+          </Paper>
+          <Paper component="ul" sx={root}>
+          <Chip label="TV Credits" sx={chip} color="primary" />
+          <ActorTvCredits actor={actor}></ActorTvCredits>
           </Paper>
     </>
   );
