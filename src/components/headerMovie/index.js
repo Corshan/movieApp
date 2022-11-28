@@ -15,6 +15,7 @@ const MovieHeader = (props) => {
   const favouriteMovies = JSON.parse(localStorage.getItem("favourites"));
 
   let fav;
+  // eslint-disable-next-line no-unused-vars
   let f;
   favouriteMovies.forEach(elm => {
     (elm.id === movie.id) ? fav = true :  f=0;
