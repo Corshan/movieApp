@@ -1,3 +1,4 @@
+import React, { useContext  } from "react";
 import Card from "@mui/material/Card";
 import { Link } from "react-router-dom";
 import CardContent from '@mui/material/CardContent';
@@ -10,8 +11,18 @@ import CardActions from "@mui/material/CardActions";
 import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
 import Grid from "@mui/material/Grid";
 import StarRateIcon from "@mui/icons-material/StarRate";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import Avatar from '@mui/material/Avatar';
+import { TvShowContext } from "../../contexts/tvShowContext";
 
-export default function TVShowCard({ tvShow }) {
+export default function TVShowCard({ tvShow, action }) {
+  const { favouritesTV }  = useContext(TvShowContext);
+
+  if (favouritesTV.find((id) => id === tvShow.id)) {
+    tvShow.favourite = true;
+  } else {
+    tvShow.favourite = false
+  }
     return(
         <Card sx={{ maxWidth: 345 }}>
       <CardHeader
@@ -19,6 +30,13 @@ export default function TVShowCard({ tvShow }) {
           <Typography variant="h5" component="p">
             {tvShow.name}{" "}
           </Typography>
+        }
+        avatar={
+          tvShow.favourite ? (
+            <Avatar sx={{ backgroundColor: 'red' }}>
+              <FavoriteIcon />
+            </Avatar>
+          ) : null
         }
       />
       <CardMedia
@@ -45,7 +63,8 @@ export default function TVShowCard({ tvShow }) {
           </Grid>
         </Grid>
       </CardContent>
-      <CardActions disableSpacing>
+        <CardActions disableSpacing>
+        {action(tvShow)}
       <Link to={`/tvshow/${tvShow.id}`}>
           <Button variant="outlined" size="medium" color="primary">
             More Info ...

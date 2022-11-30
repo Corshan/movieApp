@@ -2,9 +2,9 @@ import React from "react";
 import { useParams } from 'react-router-dom';
 import TVShowdetails from "../components/tvshowDetails";
 import PageTemplate from "../components/templateTvShow";
-import { getActor, getTvShow } from '../api/tmdb-api'
+import { getTvShow, getTvShows } from '../api/tmdb-api'
 import { useQuery } from "react-query";
-import Spinner from '../components/spinner'
+import Spinner from '../components/spinner';
 
 const TvShowDetailsPage = (props) => {
   const { id } = useParams();
@@ -27,7 +27,7 @@ const TvShowDetailsPage = (props) => {
       {tvShow ? (
         <>
           <PageTemplate tvShow={tvShow}>
-            <TVShowdetails tvShow={tvShow} />
+                      <TVShowdetails tvShow={tvShow}/>
           </PageTemplate>
         </>
       ) : (
