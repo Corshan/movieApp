@@ -1,6 +1,8 @@
 import React from 'react';
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
+import { CardMedia } from "@mui/material";
+import Card from "@mui/material/Card";
 
 const Slideshow = ({images}) => {
     //console.log(images)
@@ -9,18 +11,20 @@ const Slideshow = ({images}) => {
             url:`https://image.tmdb.org/t/p/w500${image.file_path}`
         }
     ))
-    return (
+  return (
+    <Card>
       <div className="slide-container">
         <Slide>
          {slideImages.map((image, index)=> (
             <div className="each-slide" key={index}>
-              <div>
-                <img src={image.url} alt="sample" height={400}/>
+             <div>
+               <CardMedia image={image.url} sx={{ height: 500}}></CardMedia>
               </div>
             </div>
           ))} 
         </Slide>
       </div>
+      </Card>
     )
 }
 

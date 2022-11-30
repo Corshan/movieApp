@@ -15,7 +15,8 @@ import WatchLaterPage from "./pages/watchLaterPage";
 import TVShowPage from "./pages/discoverTVShowsPage";
 import ActorListPage from "./pages/PopularActorsPage";
 import TopRatedMoviesPage from "./pages/topRatedMoviesPage";
-import TemplateActorPage from "./pages/actorDetailsPage";
+import TemplateActorPage from "./pages/actorDetailsPage"
+import TemplateTVShowPage from "./pages/tvShowDetailsPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -43,7 +44,8 @@ const App = () => {
         <Route path="/movies/:id" element={<MoviePage />} />
         <Route path="/tvshows/discover" element={<TVShowPage/>}/>
             <Route path="/actors/popular" element={<ActorListPage />} />
-            <Route path="/actor/:id" element={<TemplateActorPage/>}></Route>
+            <Route path="/actor/:id" element={<TemplateActorPage />}></Route>
+            <Route path="/tvshow/:id" element={<TemplateTVShowPage/>}></Route>
         <Route path="/" element={<HomePage />} />
         <Route path="*" element={ <Navigate to="/" /> } />
       </Routes>

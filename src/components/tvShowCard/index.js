@@ -11,7 +11,7 @@ import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
 import Grid from "@mui/material/Grid";
 import StarRateIcon from "@mui/icons-material/StarRate";
 
-export default function TVShowCard ({tvShow}) {
+export default function TVShowCard({ tvShow }) {
     return(
         <Card sx={{ maxWidth: 345 }}>
       <CardHeader
@@ -46,7 +46,7 @@ export default function TVShowCard ({tvShow}) {
         </Grid>
       </CardContent>
       <CardActions disableSpacing>
-      <Link to={``}>
+      <Link to={`/tvshow/${tvShow.id}`}>
           <Button variant="outlined" size="medium" color="primary">
             More Info ...
           </Button>

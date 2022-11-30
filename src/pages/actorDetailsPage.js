@@ -6,7 +6,7 @@ import { getActor } from '../api/tmdb-api'
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner'
 
-const MoviePage = (props) => {
+const ActordetailsPage = (props) => {
   const { id } = useParams();
 
   const { data: actor, error, isLoading, isError } = useQuery(
@@ -37,4 +37,4 @@ const MoviePage = (props) => {
   );
 };
 
-export default MoviePage;
+export default ActordetailsPage;

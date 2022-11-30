@@ -1,6 +1,5 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
-import { CardMedia } from "@mui/material";
 import Header from "../headerActor";
 import  Slideshow  from "../slideShow";
 import { getActorImages } from "../../api/tmdb-api";
@@ -8,7 +7,6 @@ import { useQuery } from "react-query";
 import Spinner from "../spinner";
 
 const TemplateActorPage = ({ actor, children }) => { 
-  const img = `https://image.tmdb.org/t/p/w500/${actor.profile_path}`;
   
   const { data , error, isLoading, isError } = useQuery(
     ["ActorImages", { id: actor.id }],
