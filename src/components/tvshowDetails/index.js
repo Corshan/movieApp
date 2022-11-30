@@ -7,6 +7,10 @@ import Spinner from '../spinner'
 import { getActorMovieCredits} from "../../api/tmdb-api";
 import { Link } from "react-router-dom";
 import ActorTvCredits from "../actorTvCredits";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import MonetizationIcon from "@mui/icons-material/MonetizationOn";
+import StarRate from "@mui/icons-material/StarRate";
+import SeasonList from "../seasonList";
 
 
 const root = {
@@ -34,6 +38,7 @@ const TVShowDetails = ({ tvShow }) => {  // Don't miss this!
 //   }
 //     const movieCredits = data;
     //console.log(data);
+    console.log(tvShow.seasons);
 
   return (
       <>
@@ -43,8 +48,69 @@ const TVShowDetails = ({ tvShow }) => {  // Don't miss this!
 
       <Typography variant="h6" component="p">
         {tvShow.overview}
-              </Typography>
-            
+          </Typography>
+          <Paper 
+        component="ul" 
+        sx={root}
+      >
+        <li>
+          <Chip label="Genres" sx={chip} color="primary" />
+        </li>
+        {tvShow.genres.map((g) => (
+          <li key={g.name}>
+            <Chip label={g.name} sx={chip} />
+          </li>
+        ))}
+          </Paper> 
+          <Paper component="ul" sx={root}>
+        <Chip
+          icon={<StarRate />}
+          label={`${tvShow.vote_average}`}
+        />
+              <Chip label={`First air date: ${tvShow.first_air_date}`} />
+      </Paper>
+          <Paper 
+        component="ul" 
+        sx={root}
+      >
+        <li>
+          <Chip label="Created By" sx={chip} color="primary" />
+        </li>
+        {tvShow.created_by.map((g) => (
+          <li key={g.name}>
+            <Chip label={g.name} sx={chip} />
+          </li>
+        ))}
+          </Paper> 
+          <Paper 
+        component="ul" 
+        sx={root}
+      >
+        <li>
+          <Chip label="Networks" sx={chip} color="primary" />
+        </li>
+        {tvShow.networks.map((g) => (
+          <li key={g.name}>
+            <Chip label={g.name} sx={chip} />
+          </li>
+        ))}
+          </Paper> 
+          <Paper 
+        component="ul" 
+        sx={root}
+      >
+        <li>
+          <Chip label="Production Companies" sx={chip} color="primary" />
+        </li>
+        {tvShow.production_companies.map((g) => (
+          <li key={g.name}>
+            <Chip label={g.name} sx={chip} />
+          </li>
+        ))}
+          </Paper>
+          <Paper>
+          <SeasonList seasons={tvShow.seasons}></SeasonList> 
+          </Paper>
     </>
   );
 };
