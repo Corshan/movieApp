@@ -13,7 +13,6 @@ import TvRoundedIcon from '@mui/icons-material/TvRounded';
 
 export default function NestedList({seasons}) {
     const [open, setOpen] = React.useState(true);
-    console.log(seasons);
 
   const handleClick = () => {
     setOpen(!open);
@@ -31,7 +30,7 @@ export default function NestedList({seasons}) {
       }
       >
           {seasons.map((element) => (
-              <>
+                  <div key={element.name}>
               <ListItemButton onClick={handleClick}>
                   <ListItemText primary={element.name}></ListItemText>
                   {!open ? <ExpandLess /> : <ExpandMore />}
@@ -51,8 +50,8 @@ export default function NestedList({seasons}) {
                     <ListItemText primary={`Episode count: ${element.episode_count}`}></ListItemText>
                 </ListItem>
               </List>
-            </Collapse>
-              </>
+                      </Collapse>
+                      </div>
             ))}
           </List>
   )

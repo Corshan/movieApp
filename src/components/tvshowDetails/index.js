@@ -4,11 +4,8 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
-import { getActorMovieCredits} from "../../api/tmdb-api";
+import { getTVshowActors} from "../../api/tmdb-api";
 import { Link } from "react-router-dom";
-import ActorTvCredits from "../actorTvCredits";
-import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import MonetizationIcon from "@mui/icons-material/MonetizationOn";
 import StarRate from "@mui/icons-material/StarRate";
 import SeasonList from "../seasonList";
 
@@ -24,21 +21,19 @@ const root = {
 const chip = { margin: 0.5 };
 
 const TVShowDetails = ({ tvShow }) => {  // Don't miss this!
-//     const { data , error, isLoading, isError } = useQuery(
-//     ["movieCredits", { id: tvShow.id }],
-//     getActorMovieCredits
-//     );
+    const { data , error, isLoading, isError } = useQuery(
+    ["cast", { id: tvShow.id }],
+    getTVshowActors
+    );
 
-//   if (isLoading) {
-//     return <Spinner />;
-//   }
+  if (isLoading) {
+    return <Spinner />;
+  }
 
-//   if (isError) {
-//     return <h1>{error.message}</h1>;
-//   }
-//     const movieCredits = data;
-    //console.log(data);
-    console.log(tvShow.seasons);
+  if (isError) {
+    return <h1>{error.message}</h1>;
+  }
+    const actors = data;
 
   return (
       <>
@@ -59,6 +54,21 @@ const TVShowDetails = ({ tvShow }) => {  // Don't miss this!
         {tvShow.genres.map((g) => (
           <li key={g.name}>
             <Chip label={g.name} sx={chip} />
+          </li>
+        ))}
+          </Paper> 
+          <Paper 
+        component="ul" 
+        sx={root}
+      >
+        <li>
+          <Chip label="Cast" sx={chip} color="primary" />
+        </li>
+        {actors.cast.map((g) => (
+            <li key={g.name}>
+                <Link to={`/actor/${g.id}`}>
+                    <Chip label={g.name} sx={chip} />
+                    </Link>
           </li>
         ))}
           </Paper> 
