@@ -2,9 +2,29 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 import { CardMedia } from "@mui/material";
 import Header from "../headerActor";
+import  Slideshow  from "../slideShow";
+import { getActorImages } from "../../api/tmdb-api";
+import { useQuery } from "react-query";
+import Spinner from "../spinner";
 
 const TemplateActorPage = ({ actor, children }) => { 
-    const img = `https://image.tmdb.org/t/p/w500/${actor.profile_path}`;
+  const img = `https://image.tmdb.org/t/p/w500/${actor.profile_path}`;
+  
+  const { data , error, isLoading, isError } = useQuery(
+    ["ActorImages", { id: actor.id }],
+    getActorImages
+    );
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+
+  if (isError) {
+    return <h1>{error.message}</h1>;
+  }
+  const images = data;
+  console.log(images);
+  
   return (
     <>
       <Header actor={actor}></Header>
@@ -15,14 +35,15 @@ const TemplateActorPage = ({ actor, children }) => {
             flexWrap: "wrap",
             justifyContent: "space-around",
           }}>
-        <CardMedia
+        {/* <CardMedia
         sx={{ height: 500 }}
         image={
           actor.profile_path
             ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}`
             : img
         }
-      />
+      /> */}
+            <Slideshow images={images.profiles}></Slideshow>
           </div>
         </Grid>
 
