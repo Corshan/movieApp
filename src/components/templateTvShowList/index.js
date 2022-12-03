@@ -3,8 +3,6 @@ import Header from "../headerMovieList";
 import FilterCard from "../filterCard";
 import TVShowList from "../tvShowList";
 import Grid from "@mui/material/Grid";
-import AddToFavouritesIcon from '../TvcardIcons/addToFavourites';
-
 
 function TVShowTemplateList({ tvShows, title, action }) {
   const [nameFilter, setNameFilter] = useState("");

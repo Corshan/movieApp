@@ -4,6 +4,7 @@ import PageTemplate from '../components/templateMovieListPage';
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 import AddToFavouritesIcon from '../components/cardIcons/addToFavourites';
+import PaginationLink from "../components/pagination";
 
 const HomePage = (props) => {
 
@@ -23,6 +24,7 @@ const HomePage = (props) => {
   localStorage.setItem('favourites', JSON.stringify(favourites))
 
   return (
+    <>
     <PageTemplate
         title="Discover Movies"
         movies={movies}
@@ -30,6 +32,7 @@ const HomePage = (props) => {
           return <AddToFavouritesIcon movie={movie} />
         }}
       />
+      </>
   );
 };
 export default HomePage;
