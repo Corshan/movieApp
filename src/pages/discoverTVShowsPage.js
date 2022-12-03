@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import Pagination from '@mui/material/Pagination';
 import PaginationItem from '@mui/material/PaginationItem';
 import { Link, MemoryRouter, Route, Routes, useLocation } from 'react-router-dom';
+import AddToFavouritesIcon from '../components/TvcardIcons/addToFavourites';
 
 const DiscoverTVShowsPage = (props) => {
   const [pageNumber, setPageNumber] = useState(1);
@@ -43,6 +44,9 @@ const DiscoverTVShowsPage = (props) => {
         <PageTemplate
         title="Discover TV Shows"
         tvShows={tvShows}
+        action={(tvshow) => {
+          return <AddToFavouritesIcon tvShow={tvshow} />
+        }}
         />
         <Pagination
       page={page}

@@ -27,10 +27,11 @@ const SiteHeader = ({ history }) => {
     { label: "Home", path: "/" },
     { label: "Upcoming", path: "/movies/upcoming" },
     { label: "Top rated", path: "/movies/toprated"},
-    { label: "Tv Shows", path: "/tvshows/discover"},
+    { label: "Tv Shows", path: "/tvshows/discover" },
     { label: "Actors", path: "/actors/popular"},
-    { label: "Favourite", path: "/movies/favourites" },
-    { label: "Watch Later", path: "/movies/watchLater" },
+    { label: "Favourite Movies", path: "/movies/favourites" },
+    {label: "Favourite Tv Shows", path: "/tvshow/favourites"},
+    { label: "Watch Later Movies", path: "/movies/watchLater" },
   ];
 
   const handleMenuSelect = (pageURL) => {

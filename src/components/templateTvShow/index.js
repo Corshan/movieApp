@@ -1,7 +1,7 @@
 import React from "react";
 import TVShowHeader from "../headerTvshow";
 import Grid from "@mui/material/Grid";
-import { getMovieImages, getTvShowImages } from "../../api/tmdb-api";
+import { getTvShowImages } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../spinner'
 import Slideshow from "../slideShow";
@@ -21,7 +21,6 @@ const TemplateTVShowPage = ({ tvShow, children }) => {
     return <h1>{error.message}</h1>;
   }
     const images = data.posters
-    console.log(data);
 
   return (
     <>

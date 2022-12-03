@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Paper from "@mui/material/Paper";
@@ -6,9 +6,19 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import HomeIcon from "@mui/icons-material/Home";
 import { useNavigate } from "react-router-dom";
+import { TvShowContext } from "../../contexts/tvShowContext";
+import { Avatar } from "@mui/material";
+import { Favorite } from "@mui/icons-material";
 
-const TvShowHeader = ({tvShow}) => {
-  const navigate = useNavigate();
+const TvShowHeader = ({ tvShow }) => {
+    const { favouritesTV } = useContext(TvShowContext);
+    const navigate = useNavigate();
+    
+
+    // eslint-disable-next-line no-unused-vars
+    let fav = favouritesTV.includes(tvShow.id);
+    console.log(favouritesTV);
+    console.log(tvShow.id);
 
   return (
     <Paper 
@@ -23,7 +33,13 @@ const TvShowHeader = ({tvShow}) => {
       >
       <IconButton aria-label="go back" onClick={() => navigate(-1)} >
         <ArrowBackIcon color="primary" fontSize="large" />
-      </IconButton>
+          </IconButton>
+          
+          {
+        fav ? <Avatar sx={{backgroundColor: 'red'}}>
+          <Favorite/>
+        </Avatar> : null
+      }
 
       <Typography variant="h4" component="h3">
         {tvShow.name}

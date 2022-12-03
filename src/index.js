@@ -10,6 +10,7 @@ import UpcomingMoviesPage from './pages/upcomingMoviePage'
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools';
 import MoviesContextProvider from "./contexts/moviesContext";
+import TvShowContextProvider from "./contexts/tvShowContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
 import WatchLaterPage from "./pages/watchLaterPage";
 import TVShowPage from "./pages/discoverTVShowsPage";
@@ -17,6 +18,7 @@ import ActorListPage from "./pages/PopularActorsPage";
 import TopRatedMoviesPage from "./pages/topRatedMoviesPage";
 import TemplateActorPage from "./pages/actorDetailsPage"
 import TemplateTVShowPage from "./pages/tvShowDetailsPage";
+import FavouritrTvShowPage from "./pages/favouriteTvShowsPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -33,7 +35,8 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
     <BrowserRouter>
       <SiteHeader />
-      <MoviesContextProvider>      
+        <MoviesContextProvider>
+        <TvShowContextProvider> 
       <Routes>
       <Route path="/reviews/form" element={<AddMovieReviewPage/>} />
         <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
@@ -44,11 +47,13 @@ const App = () => {
         <Route path="/movies/:id" element={<MoviePage />} />
         <Route path="/tvshows/discover" element={<TVShowPage/>}/>
             <Route path="/actors/popular" element={<ActorListPage />} />
-            <Route path="/actor/:id" element={<TemplateActorPage />}></Route>
+              <Route path="/actor/:id" element={<TemplateActorPage />}></Route>
+              <Route path="/tvshow/favourites" element={<FavouritrTvShowPage></FavouritrTvShowPage>}></Route>
             <Route path="/tvshow/:id" element={<TemplateTVShowPage/>}></Route>
         <Route path="/" element={<HomePage />} />
         <Route path="*" element={ <Navigate to="/" /> } />
-      </Routes>
+            </Routes>
+            </TvShowContextProvider> 
       </MoviesContextProvider>
     </BrowserRouter>
     <ReactQueryDevtools initialIsOpen={false} />

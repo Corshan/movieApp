@@ -3,6 +3,8 @@ import Header from "../headerMovieList";
 import FilterCard from "../filterCard";
 import TVShowList from "../tvShowList";
 import Grid from "@mui/material/Grid";
+import AddToFavouritesIcon from '../TvcardIcons/addToFavourites';
+
 
 function TVShowTemplateList({ tvShows, title, action }) {
   const [nameFilter, setNameFilter] = useState("");
@@ -36,7 +38,7 @@ function TVShowTemplateList({ tvShows, title, action }) {
             type = {"Tv Shows"}
           />
         </Grid>
-        <TVShowList tvShows={displayedTvshows}/>
+        <TVShowList tvShows={displayedTvshows} action={action}></TVShowList>
       </Grid>
     </Grid>
   );

@@ -5,7 +5,6 @@ import { CardMedia } from "@mui/material";
 import Card from "@mui/material/Card";
 
 const Slideshow = ({images}) => {
-    //console.log(images)
     const slideImages = images.map((image)=>(
         {
             url:`https://image.tmdb.org/t/p/w500${image.file_path}`
