@@ -2,7 +2,6 @@ import React from "react";
 import { MemoryRouter } from "react-router";
 import MoviesContextProvider from "../contexts/moviesContext";
 import Login from "../components/loginForm"
-import sample from "./sampleActor";
 
 export default {
   title: "Auth/login",

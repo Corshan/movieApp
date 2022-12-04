@@ -3,14 +3,11 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
-import Button from "@mui/material/Button";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import { useNavigate } from "react-router-dom";
 import { styled } from '@mui/material/styles';
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import { AccountCircleRounded } from "@mui/icons-material";
 import { logout } from "../../auth/authUser";
 import { auth } from '../../firebase-config';
@@ -25,9 +22,6 @@ const SiteHeader = ({ history }) => {
 
   const openUser = Boolean(anchorE2);
 
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-
   const navigate = useNavigate();
 
   const menuOptions = [
@@ -40,10 +34,6 @@ const SiteHeader = ({ history }) => {
     {label: "Favourite Tv Shows", path: "/tvshow/favourites"},
     { label: "Watch Later Movies", path: "/movies/watchLater" },
   ];
-
-  const userOptions = [
-    {label: "Sign out"}
-  ]
 
   const handleMenuSelect = (pageURL) => {
     navigate(pageURL, { replace: true });
