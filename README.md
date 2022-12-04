@@ -6,40 +6,51 @@ Name: Corey Shanahan
 
 ### New Pages.
 
-[ Provide a bullet-point list of the new pages you added to the Movies Fan add (include modifications to existing pages).]
+- Login page
+- Sign up page
+- (modified) Home page - added pagination
+- Top rated movies page
+- Discover Tv show page
+- Popular Actors page
+- Favoutite Tv shows page
+- Watch Later page
 
-e.g.
-
-+ List of Trending movies.
-+ (Modified) Movie Details page - added chips for .....
-+ List of Actors.
-+ etc
+- (modified) Movie details page - added image slideshow, added cast chips, added simliar movies chips
+- Tv show details page
+- Actors details page
 
 ### New Features.
 
-[ Provide a bullet-point list of the __new features__ you added to the Movies Fan app.] 
- 
- e.g.
-
-+ Authentication (using Firebase)
-+ Create a fantasy movie (Basic)
-+ Sort movie list by release date (e.g. the Discover Movies page)
-+ etc
+- Authentication (using Firebase)
+- Create a fantasy movie (Basic)
+- Pagination on movies, actors and tv shows
 
 ## Setup requirements.
 
-[ Outline any non-standard setup steps necessary to run your app locally after cloning the repo.]
+None
 
 ## TMDB endpoints.
 
-[ List the __additional__ TMDB endpoints used, giving the description and pathname for each one.] 
+# Movies
 
-e.g.
+- /movie/{movie_id}/similar - A list of similar movies.
+- /movie/{movie_id}/credits - the cast & crew of the movie
+- /movie/top_rated - the current top rated movies
 
-+ /movies/{movie_id}/reviews - The user reviews or a movie.
-+ /movie/{movie_id}/similar - A list of similar movies. 
-+ /person/popular - A list of popular actors.
-+ /tv/{tv_id}/videos - The videos for a TV show. 
+# Actors
+
+- /person/popular - A list of popular actors.
+- /person/{person_id} - gets the details of an actor
+- /person/{person_id}/movie_credits - list of movies an actor has starred in
+- /person/{person_id}/tv_credits - list of tv shows the actor has starred in
+- /person/{person_id}/images - list of images of an actor
+
+# Tv shows
+
+- /tv/popular - The current popular tv shows.
+- /tv/{tv_id} - Gets the details of a show
+- /tv/{tv_id}/credits - gets the cast & crew of a tv show
+- /tv/{tv_id}/images - the images related to a show
 
 ## App Design.
 
@@ -53,29 +64,29 @@ e.g.
 
 ### UI Design.
 
-[ Insert screenshots of the __new app pages__ you developed (including modified existing pages), Have an appropriate caption for each one (see example below).
+[ Insert screenshots of the **new app pages** you developed (including modified existing pages), Have an appropriate caption for each one (see example below).
 
 ![ ](./images/detail.png)
 
->Shows detailed information on a movie. Clicking the 'Reviews' floating action button will display extracts from critic reviews.
+> Shows detailed information on a movie. Clicking the 'Reviews' floating action button will display extracts from critic reviews.
 
 ![ ](./images/review.png)
 
->Shows the full review for a movie.
+> Shows the full review for a movie.
 
 ### Routing.
 
 [ List the __new routes__ supported by your app and state the associated page.]
 
-e.g. 
+e.g.
 
-+ /actors - displays a list of popular actors.
-+ /actors/:id - shows details about a particular actor.
-+ /actors/:id/movies (protected) - an actor's movie credits.
-+ etc.
+- /actors - displays a list of popular actors.
+- /actors/:id - shows details about a particular actor.
+- /actors/:id/movies (protected) - an actor's movie credits.
+- etc.
 
 [If relevant, state what aspects of your app are protected/private (i.e. require authentication) and what is public.]
 
 ## Independent learning (If relevant).
 
-[ Itemize the technologies/techniques you researched independently and adopted in your project, i.e. aspects not covered in the lectures/labs. Mention the source code filenames that illustrate these  (code excerpts are not required) and provide references to the online resources that helped you (articles/blogs).
+[ Itemize the technologies/techniques you researched independently and adopted in your project, i.e. aspects not covered in the lectures/labs. Mention the source code filenames that illustrate these (code excerpts are not required) and provide references to the online resources that helped you (articles/blogs).
