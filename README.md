@@ -70,6 +70,18 @@ None
 
 > Shows the 4th page in the popular movies page.
 
+![](./images/login_page.png)
+
+> Shows the login page.
+
+![](./images/sign_up_page.png)
+
+> Shows the sign up page.
+
+![](./images/actors_page.png)
+
+> Shows a list of popular actors.
+
 ### Routing.
 
 [ List the __new routes__ supported by your app and state the associated page.]
