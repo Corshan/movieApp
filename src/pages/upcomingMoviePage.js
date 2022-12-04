@@ -5,11 +5,10 @@ import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 import MustWatchIcon from '../components/cardIcons/addToMustWatch';
 import { useState } from 'react';
-import { useParams } from "react-router-dom";
 import Pagination from '@mui/material/Pagination';
 import PaginationItem from '@mui/material/PaginationItem';
-import { Link, MemoryRouter, Route, Routes, useLocation } from 'react-router-dom';
-import AddToFavouritesIcon from '../components/TvcardIcons/addToFavourites';
+import { Link, useLocation } from 'react-router-dom';
+
 
 const UpcomingMoviesPage = (props) => {
   const [pageNumber, setPageNumber] = useState(1);

@@ -1,13 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { getTvShows} from "../api/tmdb-api";
 import PageTemplate from '../components/templateTvShowList'
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 import { useState } from 'react';
-import { useParams } from "react-router-dom";
 import Pagination from '@mui/material/Pagination';
 import PaginationItem from '@mui/material/PaginationItem';
-import { Link, MemoryRouter, Route, Routes, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import AddToFavouritesIcon from '../components/TvcardIcons/addToFavourites';
 
 const DiscoverTVShowsPage = (props) => {
