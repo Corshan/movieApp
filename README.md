@@ -31,13 +31,13 @@ None
 
 ## TMDB endpoints.
 
-# Movies
+### Movies
 
 - /movie/{movie_id}/similar - A list of similar movies.
 - /movie/{movie_id}/credits - the cast & crew of the movie
 - /movie/top_rated - the current top rated movies
 
-# Actors
+### Actors
 
 - /person/popular - A list of popular actors.
 - /person/{person_id} - gets the details of an actor
@@ -45,7 +45,7 @@ None
 - /person/{person_id}/tv_credits - list of tv shows the actor has starred in
 - /person/{person_id}/images - list of images of an actor
 
-# Tv shows
+### Tv shows
 
 - /tv/popular - The current popular tv shows.
 - /tv/{tv_id} - Gets the details of a show
@@ -56,23 +56,19 @@ None
 
 ### Component catalogue.
 
-[ Insert a screenshot from the Storybook UI, and highlight the stories that relate to your __new/modified components__ - see the example screenshot below.] .......
-
-e.g.
-
-![](./images/stories.png)
+![](./images/story_book.png)
 
 ### UI Design.
 
 [ Insert screenshots of the **new app pages** you developed (including modified existing pages), Have an appropriate caption for each one (see example below).
 
-![ ](./images/detail.png)
+![ ](./images/movie_details_page.png)
 
-> Shows detailed information on a movie. Clicking the 'Reviews' floating action button will display extracts from critic reviews.
+> Shows detailed information on a movie. The movie posters are now in a slideshow. The name's of the cast are links to their details page. Similar movies are also links to their details page.
 
-![ ](./images/review.png)
+![ ](./images/movies_pagination.png)
 
-> Shows the full review for a movie.
+> Shows the 4th page in the popular movies page.
 
 ### Routing.
 

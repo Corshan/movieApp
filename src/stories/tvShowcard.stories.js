@@ -5,7 +5,7 @@ import TVShowCard from "../components/tvShowCard";
 import sampleTVshow from "./sampleTVshow";
 
 export default {
-  title: "Home Page/TVShowCard",
+  title: "Tv show/TVShowCard",
   component: TVShowCard,
   decorators: [
     (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,
