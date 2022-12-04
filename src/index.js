@@ -19,6 +19,7 @@ import TopRatedMoviesPage from "./pages/topRatedMoviesPage";
 import TemplateActorPage from "./pages/actorDetailsPage"
 import TemplateTVShowPage from "./pages/tvShowDetailsPage";
 import FavouritrTvShowPage from "./pages/favouriteTvShowsPage";
+import PrivateRoutes from "./privateRoute";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -38,6 +39,7 @@ const App = () => {
         <MoviesContextProvider>
         <TvShowContextProvider> 
       <Routes>
+        <Route element={<PrivateRoutes/>}>
       <Route path="/reviews/form" element={<AddMovieReviewPage/>} />
         <Route path="/reviews/:id" element={ <MovieReviewPage /> } />
         <Route exact path="/movies/favourites" element={<FavouriteMoviesPage />} />
@@ -50,6 +52,7 @@ const App = () => {
               <Route path="/actor/:id" element={<TemplateActorPage />}></Route>
               <Route path="/tvshow/favourites" element={<FavouritrTvShowPage></FavouritrTvShowPage>}></Route>
             <Route path="/tvshow/:id" element={<TemplateTVShowPage/>}></Route>
+            </Route>
         <Route path="/" element={<HomePage />} />
         <Route path="*" element={ <Navigate to="/" /> } />
             </Routes>

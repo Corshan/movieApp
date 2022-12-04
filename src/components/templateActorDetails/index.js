@@ -21,7 +21,6 @@ const TemplateActorPage = ({ actor, children }) => {
     return <h1>{error.message}</h1>;
   }
   const images = data;
-  console.log(images);
   
   return (
     <>

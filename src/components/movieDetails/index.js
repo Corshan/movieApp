@@ -13,6 +13,8 @@ import { useQuery } from "react-query";
 import Spinner from '../spinner'
 import { getSimilarMovies } from "../../api/tmdb-api";
 import { Link } from "react-router-dom";
+import MovieCast from "../movieCast";
+
 
 
 const root = {
@@ -66,6 +68,7 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
           </li>
         ))}
       </Paper>
+      <MovieCast movie={movie}></MovieCast>
       <Paper component="ul" sx={root}>
         <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
         <Chip
