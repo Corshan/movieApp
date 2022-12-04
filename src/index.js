@@ -20,6 +20,8 @@ import TemplateActorPage from "./pages/actorDetailsPage"
 import TemplateTVShowPage from "./pages/tvShowDetailsPage";
 import FavouritrTvShowPage from "./pages/favouriteTvShowsPage";
 import PrivateRoutes from "./privateRoute";
+import LoginPage from "./pages/loginPage";
+import SignUpPage from "./pages/signUpPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -52,8 +54,10 @@ const App = () => {
               <Route path="/actor/:id" element={<TemplateActorPage />}></Route>
               <Route path="/tvshow/favourites" element={<FavouritrTvShowPage></FavouritrTvShowPage>}></Route>
             <Route path="/tvshow/:id" element={<TemplateTVShowPage/>}></Route>
-            </Route>
         <Route path="/" element={<HomePage />} />
+              </Route>
+              <Route path="/login" element={<LoginPage></LoginPage>}></Route>
+              <Route path="signup" element={<SignUpPage></SignUpPage>}></Route>
         <Route path="*" element={ <Navigate to="/" /> } />
             </Routes>
             </TvShowContextProvider> 

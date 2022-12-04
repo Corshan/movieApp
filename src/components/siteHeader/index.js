@@ -11,12 +11,19 @@ import { useNavigate } from "react-router-dom";
 import { styled } from '@mui/material/styles';
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { AccountCircleRounded } from "@mui/icons-material";
+import { logout } from "../../auth/authUser";
+import { auth } from '../../firebase-config';
 
 const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
 
 const SiteHeader = ({ history }) => {
   const [anchorEl, setAnchorEl] = useState(null);
+  const [anchorE2, setAnchorE2] = useState(null);
+
   const open = Boolean(anchorEl);
+
+  const openUser = Boolean(anchorE2);
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -34,13 +41,28 @@ const SiteHeader = ({ history }) => {
     { label: "Watch Later Movies", path: "/movies/watchLater" },
   ];
 
+  const userOptions = [
+    {label: "Sign out"}
+  ]
+
   const handleMenuSelect = (pageURL) => {
     navigate(pageURL, { replace: true });
+    setAnchorEl(false);
   };
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
+  const handleUserMenu = (event) => {
+    setAnchorE2(event.currentTarget);
+  };
+
+  const handleSignOut = (event) => {
+    logout();
+    navigate("/login", { replace: true })
+    setAnchorE2(null)
+  }
 
   return (
     <>
@@ -52,8 +74,41 @@ const SiteHeader = ({ history }) => {
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
             All you ever wanted to know about Movies!
           </Typography>
-            {isMobile ? (
-              <>
+          <>
+            {
+              auth.currentUser ? (
+                <>
+            <IconButton
+            aria-label="menu"
+            aria-controls="menu-appbar"
+            aria-haspopup="true"
+            onClick={handleUserMenu}
+            color="inherit"
+            >
+            <AccountCircleRounded></AccountCircleRounded>
+            </IconButton>
+            <Menu
+                  id="menu-appbar"
+                  anchorEl={anchorE2}
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  open={openUser}
+                  onClose={() => setAnchorE2(null)}
+                >
+                  
+                    <MenuItem onClick={handleSignOut}>
+                      Sign Out
+                    </MenuItem>
+                  </Menu>
+                  </>) : null
+                }
                 <IconButton
                   aria-label="menu"
                   aria-controls="menu-appbar"
@@ -88,19 +143,7 @@ const SiteHeader = ({ history }) => {
                   ))}
                 </Menu>
               </>
-            ) : (
-              <>
-                {menuOptions.map((opt) => (
-                  <Button
-                    key={opt.label}
-                    color="inherit"
-                    onClick={() => handleMenuSelect(opt.path)}
-                  >
-                    {opt.label}
-                  </Button>
-                ))}
-              </>
-            )}
+            
         </Toolbar>
       </AppBar>
       <Offset />
