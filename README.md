@@ -117,8 +117,6 @@ None
 
 ## Independent learning (If relevant).
 
-[ Itemize the technologies/techniques you researched independently and adopted in your project, i.e. aspects not covered in the lectures/labs. Mention the source code filenames that illustrate these (code excerpts are not required) and provide references to the online resources that helped you (articles/blogs).
-
 - src/privateRoute.js - Private routes https://medium.com/@dennisivy/creating-protected-routes-with-react-router-v6-2c4bbaf7bc1c
 - src/components/slideShow/index.js - Image slideshow https://www.npmjs.com/package/react-slideshow-image
 - src/auth/authUser.js - Authenication - https://blog.logrocket.com/user-authentication-firebase-react-apps/
