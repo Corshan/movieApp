@@ -57,7 +57,7 @@ const App = () => {
         <Route path="/" element={<HomePage />} />
               </Route>
               <Route path="/login" element={<LoginPage></LoginPage>}></Route>
-              <Route path="signup" element={<SignUpPage></SignUpPage>}></Route>
+              <Route path="/signup" element={<SignUpPage></SignUpPage>}></Route>
         <Route path="*" element={ <Navigate to="/" /> } />
             </Routes>
             </TvShowContextProvider> 

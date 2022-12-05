@@ -82,18 +82,37 @@ None
 
 > Shows a list of popular actors.
 
+![](./images/actors_details_page.png)
+
+> Shows the details of the actor. The actors profile pictures are in a slideshow. If the actor is dead, it will display the death day.
+
+![](./images/favourite_tv_show.png)
+
+> Shows all the tv shows that the user has favored.
+
+![](./images/tv_show_detail_page.png)
+
+> Shows the details of a tv show.
+
+![](./images/tv_show_page.png)
+
+> Shows the current popular tv shows.
+
+![](./images/watch_later_movies_page.png)
+
+> Shows the list of must watch that the user has selected.
+
 ### Routing.
 
-[ List the __new routes__ supported by your app and state the associated page.]
-
-e.g.
-
-- /actors - displays a list of popular actors.
-- /actors/:id - shows details about a particular actor.
-- /actors/:id/movies (protected) - an actor's movie credits.
-- etc.
-
-[If relevant, state what aspects of your app are protected/private (i.e. require authentication) and what is public.]
+- /movies/watchlater (Private) - displays the custom list of the user must watch movies.
+- /movies/toprated (Private) - displays the current top rated movies.
+- /tvshows/discover (Private) - displays a list of tv shows.
+- /actors/popular (Private) - display a list of current popluar actors.
+- /actors/:id (Private) - displays the details of an actor.
+- /tvshows/favourite (Private) - displays the users favourite tv shows.
+- /tvshow/:id (Private) - diplays the details of a tv show
+- /login (Public) - displays a login form
+- /signup (Public) - displays a sign up form
 
 ## Independent learning (If relevant).
 
