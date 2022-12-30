@@ -45,8 +45,10 @@ const SignUpForm = () => {
             <Grid2 xs={12}>
             <TextField id="filled-basic" label="Password" type="password" variant="filled" sx={root} onChange={(event) => {setPassword(event.target.value)}}  />
                 </Grid2>
+                <Grid2 xs={12}>
+            <TextField id="filled-basic" label="Password" type="password" variant="filled" sx={root} onChange={(event) => {setPasswordAgain(event.target.value)}}  />
+                </Grid2>
                 <Grid2 sx={2}>
-                    
             <Button variant="contained" sx={{ width: 100 }} onClick={register}>Sign Up</Button>
                 </Grid2>
             </Grid2 >  
